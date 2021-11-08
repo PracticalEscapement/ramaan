@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_04_164535) do
+ActiveRecord::Schema.define(version: 2021_11_08_150618) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street_address"
+    t.string "street_address_unit"
+    t.string "city"
+    t.string "zipcode"
+    t.string "state"
+    t.string "country"
+    t.string "phone_number"
+    t.integer "restaurant_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["restaurant_id"], name: "index_addresses_on_restaurant_id"
+  end
 
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
@@ -21,15 +35,21 @@ ActiveRecord::Schema.define(version: 2021_11_04_164535) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "author_id", null: false
-    t.string "restaurant_name", null: false
-    t.string "restaurant_type"
-    t.string "image_url"
-    t.float "restaurant_rating"
-    t.integer "price"
     t.text "review"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
     t.index ["author_id"], name: "index_posts_on_author_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "restaurant_type"
+    t.string "image_url"
+    t.float "rating"
+    t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,5 +67,6 @@ ActiveRecord::Schema.define(version: 2021_11_04_164535) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "restaurants"
   add_foreign_key "posts", "authors"
 end
