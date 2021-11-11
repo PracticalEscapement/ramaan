@@ -1,0 +1,10 @@
+<h1>Add Restaurant</h1>
+
+<%= form_with model: @restaurant, url: create_restaurant_path do |form| %>
+  Name: <%= form.text_field :name %><br>
+  Restaurant Type: <%= form.text_field :restaurant_type %><br>
+  Image: <%= form.text_field :image_url %><br>
+  Rating: <%= form.text_field :rating %><br>
+  Price: <%= form.text_field :price %><br>
+  <%= form.submit %>
+<% end %>

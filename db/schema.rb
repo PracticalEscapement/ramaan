@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_08_150618) do
+ActiveRecord::Schema.define(version: 2021_11_11_174843) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -39,7 +39,9 @@ ActiveRecord::Schema.define(version: 2021_11_08_150618) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
+    t.integer "restaurant_id"
     t.index ["author_id"], name: "index_posts_on_author_id"
+    t.index ["restaurant_id"], name: "index_posts_on_restaurant_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -63,10 +65,12 @@ ActiveRecord::Schema.define(version: 2021_11_08_150618) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
+    t.boolean "is_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addresses", "restaurants"
   add_foreign_key "posts", "authors"
+  add_foreign_key "posts", "restaurants"
 end
