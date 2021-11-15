@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_174843) do
+ActiveRecord::Schema.define(version: 2021_11_15_172437) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -71,6 +71,5 @@ ActiveRecord::Schema.define(version: 2021_11_11_174843) do
   end
 
   add_foreign_key "addresses", "restaurants"
-  add_foreign_key "posts", "authors"
   add_foreign_key "posts", "restaurants"
 end

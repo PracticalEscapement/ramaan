@@ -1,0 +1,12 @@
+<h1>Posts Index</h1>
+
+<div>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <%= link_to "#{post.title.titleize} :#{post.created_at}",
+         restaurant_post_path(post.restaurant_id, post.id) %>
+      </li>
+    <% end %>
+  <ul>
+</div>
