@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   get 'restaurants/show/:id', to: 'restaurants#show', as: :restaurant
 
   get 'posts/index', to: 'posts#index', as: :posts
+  
+  resources :restaurants do
+    resources :posts
+  end
+  
 end

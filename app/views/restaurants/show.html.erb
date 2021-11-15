@@ -1,0 +1,22 @@
+<h1>Show Restaurant</h1>
+
+<div>
+  <%= @restaurant.name.titleize %><br>
+  <% if @restaurant.image_url.present? %>
+    <%= image_tag(@restaurant.image_url) %>
+  <% end %>
+</div><br>
+<div>
+  <%= link_to "New Post", new_restaurant_post_path(@restaurant.id) %>
+</div>
+<div>
+  <h3><%= "#{@restaurant.name.titleize} Posts" %></h3>
+  <ul>
+    <% @restaurant.posts.each do |post| %>
+      <li>
+        <%= link_to "#{post.title.titleize} ID: #{post.id}",
+         restaurant_post_path(@restaurant.id, post.id) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
