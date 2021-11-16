@@ -14,4 +14,8 @@ Rails.application.routes.draw do
     resources :posts
   end
   
+  resources :restaurants do
+    resources :addresses
+  end
+
 end
