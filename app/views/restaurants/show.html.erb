@@ -1,4 +1,4 @@
-<h1>Show Restaurant</h1>
+<h1><%= @restaurant.name.titleize %></h1>
 
 <div>
   <%= @restaurant.name.titleize %><br>
@@ -7,7 +7,24 @@
   <% end %>
 </div><br>
 <div>
-  <%= link_to "New Post", new_restaurant_post_path(@restaurant.id) %>
+  <u>Locations:</u>
+  <% if @restaurant.addresses.present? %>
+    <ul>
+      <% @restaurant.addresses.each do |address| %>
+        <li>
+          <%= full_address(address) %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <strong>
+      <p>There are no locations listed.<p>
+    </strong>
+  <% end %>
+</div>
+<div>
+  -<%= link_to "Add Location", new_restaurant_address_path(@restaurant.id) %><br>
+  -<%= link_to "New Post", new_restaurant_post_path(@restaurant.id) %>
 </div>
 <div>
   <h3><%= "#{@restaurant.name.titleize} Posts" %></h3>
