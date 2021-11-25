@@ -1,4 +1,15 @@
 <h1>Show Post</h1>
 
+<% if @restaurant.image_url.present? %>
+  <%= image_tag(@restaurant.image_url) %>
+<% end %>
+
 <h3><%= @post.title %><br></h3>
 <p><%= @post.review %></p>
+
+<% if current_user.present? %>
+    <p>Comment</p>
+  <% if current_user.is_admin? %>
+    <%= link_to "Delete Post", @post, method: :delete, data: { confirm: "Really?" } %>
+  <% end %>
+<% end %>

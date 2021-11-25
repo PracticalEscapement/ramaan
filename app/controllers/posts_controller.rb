@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def new
@@ -18,6 +19,12 @@ class PostsController < ApplicationController
     @post = Post.create(post_params)
     redirect_to posts_path
   end
+
+  def destroy
+    Post.find(params[:id]).destroy
+    redirect_to posts_path
+  end
+
 
   private
 
