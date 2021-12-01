@@ -9,9 +9,15 @@ class AddressesController < ApplicationController
   end
   
   def create
-    @restaurant = Restaurant.find(params[:restaurant_id])
-    @address = Address.create(address_params)
-    redirect_to restaurants_path(@restaurant)
+    restaurant = Restaurant.find(params[:restaurant_id])
+    address = restaurant.addresses.build(address_params)
+    if address.valid?
+      address.save
+      redirect_to restaurant_path(restaurant)
+    else
+      redirect_to root_path
+    end
+
   end
 
   private
