@@ -33,7 +33,10 @@
       <li>
         <%= link_to "#{post.title.titleize} ID: #{post.id}",
          restaurant_post_path(@restaurant.id, post.id) %>
+         <%= link_to 'Edit', edit_restaurant_post_path(@restaurant.id) %>
       </li>
     <% end %>
   </ul>
 </div>
+<br>
+<%= link_to "Delete Restaurant", @restaurant, method: :delete, data: { confirm: "Really?" } %>

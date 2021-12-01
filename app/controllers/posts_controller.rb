@@ -10,6 +10,9 @@ class PostsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
+  def edit
+  end
+
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
     @post = Post.new
