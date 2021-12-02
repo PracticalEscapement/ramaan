@@ -1,7 +1,6 @@
 class AddressesController < ApplicationController
 
-  def index
-  end
+  before_action :authenticate_admin_user!
 
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -11,13 +10,11 @@ class AddressesController < ApplicationController
   def create
     restaurant = Restaurant.find(params[:restaurant_id])
     address = restaurant.addresses.build(address_params)
-    if address.valid?
-      address.save
+    if address.save
       redirect_to restaurant_path(restaurant)
     else
-      redirect_to root_path
+      redirect_to new_restaurant_address_path(restaurant), alert: "Invalid Address"
     end
-
   end
 
   private
