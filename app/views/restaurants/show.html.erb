@@ -33,7 +33,7 @@
       <li>
         <%= link_to "#{post.title.titleize} ID: #{post.id}",
          restaurant_post_path(@restaurant.id, post.id) %>
-         <%= link_to 'Edit', edit_restaurant_post_path(@restaurant.id) %>
+         <%= link_to 'Edit', edit_restaurant_post_path(@restaurant.id, post.id) %>
       </li>
     <% end %>
   </ul>

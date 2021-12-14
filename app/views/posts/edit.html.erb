@@ -1,1 +1,7 @@
-<h1>hello</h1>
+<h1>Edit Post</h1>
+
+<%= form_with model: @post, url: [@restaurant, @post] do |form| %>
+  Title: <%= form.text_field :title %><br>
+  Review: <%= form.text_area :review %><br>
+  <%= form.submit %>
+<% end %>
