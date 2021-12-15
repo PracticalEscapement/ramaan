@@ -7,8 +7,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    restaurant = @post.restaurant_id
-    @restaurant = Restaurant.find(restaurant)
   end
 
   def edit
@@ -17,8 +15,11 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(title: params[:post][:title], review: params[:post][:review])
-    redirect_to post_path(@post)
+    if @post.update(title: params[:post][:title], review: params[:post][:review])
+      redirect_to post_path(@post)
+    else
+      redirect_to edit_post_path(@post), notice: "ERROR ON SUBMIT!"
+    end
   end
 
   def new
