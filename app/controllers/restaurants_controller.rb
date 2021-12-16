@@ -32,4 +32,5 @@ class RestaurantsController < ApplicationController
       :name, :restaurant_type, :image_url, :rating, :price
     )
   end
+
 end
