@@ -17,6 +17,14 @@ class AddressesController < ApplicationController
     end
   end
 
+  def destroy
+    address = Address.find(params[:id])
+    @restaurant = address.restaurant_id
+    @address = address.destroy
+
+    redirect_to restaurant_path(@restaurant)
+  end
+
   private
 
   def address_params
