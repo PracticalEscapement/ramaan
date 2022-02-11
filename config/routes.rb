@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       resources :restaurants, :posts, only: [:index, :show, :create, :destroy] 
     end
   end
-
+  
   delete '/restaurants/:restaurant_id/addresses/:id', to: 'addresses#destroy', as: :destroy_restaurant_address
 
 end

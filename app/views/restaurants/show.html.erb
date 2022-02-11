@@ -13,6 +13,7 @@
       <% @restaurant.addresses.each do |address| %>
         <li>
           <%= full_address(address) %>
+          <%= link_to "DEL", destroy_restaurant_address_path(@restaurant, address.id), method: :delete %>
         </li>
       <% end %>
     </ul>
