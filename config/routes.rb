@@ -19,4 +19,6 @@ Rails.application.routes.draw do
     end
   end
 
+  delete '/restaurants/:restaurant_id/addresses/:id', to: 'addresses#destroy', as: :destroy_restaurant_address
+
 end
