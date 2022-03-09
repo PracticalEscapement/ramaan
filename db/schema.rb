@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_172437) do
+ActiveRecord::Schema.define(version: 2022_03_05_121549) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -66,6 +66,10 @@ ActiveRecord::Schema.define(version: 2021_11_15_172437) do
     t.string "first_name"
     t.string "last_name"
     t.boolean "is_admin", default: false
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
