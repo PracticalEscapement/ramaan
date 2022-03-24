@@ -22,8 +22,8 @@ Rails.application.routes.draw do
         sessions: 'api/v1/users/sessions',
       }
       resources :current_user, only: [:index]
-      resources :restaurants, :posts, only: [:index, :show, :create, :destroy] 
-
+      resources :restaurants, :posts, only: [:index, :show, :create, :destroy]
+      resources :comments, only: [:index, :show, :create, :destroy]
     end
   end
 

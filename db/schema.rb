@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_05_121549) do
+ActiveRecord::Schema.define(version: 2022_03_24_010527) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 2022_03_05_121549) do
     t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "text"
+    t.integer "likes", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "post_id"
+    t.integer "user_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -75,5 +86,7 @@ ActiveRecord::Schema.define(version: 2022_03_05_121549) do
   end
 
   add_foreign_key "addresses", "restaurants"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "posts", "restaurants"
 end
