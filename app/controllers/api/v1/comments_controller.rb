@@ -1,18 +1,20 @@
 module Api
   module V1
     class CommentsController < ApiController
-      before_action :authenticate_api_v1_user, except: [:index]  
+      before_action :authenticate_api_v1_user!, except: [:index] 
 
       def index
-        post = Post.find(params[:id])
+        post = Post.find(params[:post_id])
         @comments = post.comments
       end
 
       def create
-        @comment = Comment.create(commment_params)
+        @comment = Comment.create(comment_params)
       end
 
       def destroy
+        comment = Comment.find(params[:id])
+        comment.destroy
       end
 
       private
