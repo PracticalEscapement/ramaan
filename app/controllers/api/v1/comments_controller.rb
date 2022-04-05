@@ -14,7 +14,14 @@ module Api
 
       def destroy
         comment = Comment.find(params[:id])
+        authorize comment
         comment.destroy
+
+        if comment.destroy
+          @message = 'sucessfully deleted'
+        else
+          @message = 'Failed delete'
+        end
       end
 
       private
