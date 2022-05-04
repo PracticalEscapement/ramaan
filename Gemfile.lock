@@ -67,6 +67,7 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    awesome_print (1.9.2)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.10.3)
@@ -199,6 +200,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
+    table_print (1.5.7)
     thor (1.2.1)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -234,6 +236,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.2)
+  awesome_print (~> 1.8)
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
@@ -250,6 +253,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   sqlite3 (~> 1.4)
+  table_print (~> 1.5, >= 1.5.7)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

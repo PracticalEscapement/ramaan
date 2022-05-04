@@ -23,7 +23,7 @@ module Api
 
       def restaurant_params
         params.require(:restaurant).permit(
-          :name, :restaurant_type, :image_url, :rating, :price
+          :name, :restaurant_type, :image_url, :rating, :price, images: []
         )
       end
       
