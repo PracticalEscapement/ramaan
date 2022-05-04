@@ -6,6 +6,11 @@ module Api
       def index
         post = Post.find(params[:post_id])
         @comments = post.comments
+        if current_api_v1_user.image.attached?
+          @avatar = url_for(current_api_v1_user.image)
+        else
+          @avatar = 'No Image'
+        end
       end
 
       def create
