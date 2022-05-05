@@ -58,7 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # My gems
 gem 'devise', '~> 4.8'
 gem 'pry', '~> 0.14.0'
-gem 'rack-cors'
+gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 gem 'active_model_serializers', '~> 0.10.2'
 gem 'pundit'
 gem 'awesome_print', '~> 1.8'
