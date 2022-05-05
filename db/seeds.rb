@@ -8,13 +8,27 @@
 
 # Default Admin User
 
-User.create(
-  first_name: 'mike_admin', last_name: 'moradi_admin', email: 'mike_admin@dev.com', password: '123456', is_admin: true)
+User.create([
+  {first_name: 'mike_admin', last_name: 'moradi_admin', email: 'mike_admin@dev.com', password: '123456', is_admin: true},
+  {first_name: 'michael', last_name: 'moradi', email: 'michael@dev.com', password: '123456', is_admin: false},
+  {first_name: 'james', last_name: 'jason', email: 'james@dev.com', password: '123456', is_admin: false},
+])
 
-restaurants = Restaurant.create([
-  {name: "timi", restaurant_type: "japanese", image_url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV0A...", rating: 8.0, price: 10000},
-  {name: "portofino", restaurant_type: "italian", image_url: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...", rating: 8.0, price: 5000}, 
-  {name: "al mar", restaurant_type: "italian", image_url: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...", rating: 9.0, price: 20000},
+Restaurant.create([
+  {name: "Ramen Kyoto", restaurant_type: "ramen", image_url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV0A...", rating: 10.0, price: 10000},
+  {name: "Raki", restaurant_type: "ramen", image_url: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...", rating: 8.0, price: 5000}, 
+  {name: "8 Ramen", restaurant_type: "ramen", image_url: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...", rating: 9.0, price: 20000},
+])
+
+Post.create([
+  {title: 'My First Experience With Authentic Ramen',
+  review: 'This was the first time i ever had ramen, and i instantly fell in love!
+   This was the first time i ever had ramen, and i instantly fell in love! 
+   This was the first time i ever had ramen, and i instantly fell in love! 
+   This was the first time i ever had ramen, and i instantly fell in love! 
+   This was the first time i ever had ramen, and i instantly fell in love! 
+   This was the first time i ever had ramen, and i instantly fell in love! ',
+  restaurant_id: 1}
 ])
 
 #395 New York Ave, NY 11743, (631) 673-1200
