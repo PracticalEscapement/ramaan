@@ -2,6 +2,8 @@ module Api
   module V1
     class CurrentUserController < ApiController
 
+      skip_before_action :authenticate_api_v1_user
+
       def index
         if current_api_v1_user.present?
           #render json: current_api_v1_user
