@@ -1,6 +1,6 @@
 module Api
   module V1
-    class CurrentUserController < ApiControllerr
+    class CurrentUserController < ApiController
 
       def index
         if current_api_v1_user.present?
